@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View cho Human (có thể hiện Superhuman) -->
+    <record id="view_demo_human_tree" model="ir.ui.view">
+        <field name="name">demo.human.tree</field>
+        <field name="model">demo.human</field>
+        <field name="arch" type="xml">
+            <tree string="Humans">
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="birth_date" optional="hide"/>
+                <!-- Thêm các trường Superhuman  -->
+                <field name="hero_name" optional="show"/>
+                <field name="superpower" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View cho Human (hiển thị cả trường Superhuman) -->
+    <record id="view_demo_human_form" model="ir.ui.view">
+        <field name="name">demo.human.form</field>
+        <field name="model">demo.human</field>
+        <field name="arch" type="xml">
+            <form string="Human / Superhuman">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Human's Name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Basic Info">
+                            <field name="birth_date"/>
+                            <field name="gender"/>
+                        </group>
+                        <!-- Thêm nhóm cho Superhuman Info -->
+                        <group string="Superhuman Info" name="superhuman_info">
+                            <field name="hero_name"/>
+                            <field name="superpower" required="0"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action cho Human (sẽ mở view ở trên) -->
+    <record id="action_demo_human" model="ir.actions.act_window">
+        <field name="name">Humans</field>
+        <field name="res_model">demo.human</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

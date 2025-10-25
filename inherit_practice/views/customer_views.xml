@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View cho Customer -->
+    <record id="view_demo_customer_tree" model="ir.ui.view">
+        <field name="name">demo.customer.tree</field>
+        <field name="model">demo.customer</field>
+        <field name="arch" type="xml">
+            <tree string="Customers (_inherits)">
+                <field name="name"/>
+                <field name="birth_date"/>
+                <field name="customer_rank"/>
+                <field name="registration_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View cho Customer -->
+    <record id="view_demo_customer_form" model="ir.ui.view">
+        <field name="name">demo.customer.form</field>
+        <field name="model">demo.customer</field>
+        <field name="arch" type="xml">
+            <form string="Customer (_inherits)">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Customer's Name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Basic Info (from Human)">
+                            <field name="birth_date"/>
+                        </group>
+                        <group string="Customer Specific Info">
+                            <field name="customer_rank"/>
+                            <field name="registration_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action cho Customer -->
+    <record id="action_demo_customer" model="ir.actions.act_window">
+        <field name="name">Customers (_inherits)</field>
+        <field name="res_model">demo.customer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
