@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bookstore_stats_wizard_view_form" model="ir.ui.view">
+        <field name="name">bookstore.stats.wizard.form</field>
+        <field name="model">bookstore.stats.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Bookstore Statistics">
+                <group>
+                    <field name="total_books"/>
+                    <field name="average_age" widget="float_time" string="Tuổi trung bình (năm)"/>
+                    <field name="oldest_book_id"/>
+                </group>
+                <group string="Thống kê Tác giả">
+                    <field name="author_stats_display" nolabel="1"/>
+                </group>
+                <footer>
+                    <button string="Đóng" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="bookstore_stats_wizard_action" model="ir.actions.act_window">
+        <field name="name">Book Statistics</field>
+        <field name="res_model">bookstore.stats.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="bookstore_stats_menu"
+        name="Statistics"
+        parent="my_bookstore.bookstore_menu_root" action="bookstore_stats_wizard_action"
+        sequence="99"/>
+</odoo>

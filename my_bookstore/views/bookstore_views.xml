@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bookstore_book_view_form" model="ir.ui.view">
+        <field name="name">bookstore.book.form</field>
+        <field name="model">bookstore.book</field>
+        <field name="arch" type="xml">
+            <form string="Book">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="author"/>
+                            <field name="publisher"/>
+                        </group>
+                        <group>
+                            <field name="publication_year"/>
+                            <field name="age" readonly="1"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="bookstore_book_view_tree" model="ir.ui.view">
+        <field name="name">bookstore.book.tree</field>
+        <field name="model">bookstore.book</field>
+        <field name="arch" type="xml">
+            <tree string="Books">
+                <field name="name"/>
+                <field name="author"/>
+                <field name="publication_year"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="bookstore_book_action" model="ir.actions.act_window">
+        <field name="name">Sách</field>
+        <field name="res_model">bookstore.book</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Chưa có sách nào, hãy tạo sách mới!
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="bookstore_menu_root"
+        name="Bookstore"
+        sequence="10"/>
+    <menuitem
+        id="bookstore_book_menu"
+        name="Quản lý sách"
+        parent="bookstore_menu_root"
+        action="bookstore_book_action"
+        sequence="10"/>
+</odoo>
