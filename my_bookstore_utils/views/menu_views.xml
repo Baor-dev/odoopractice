@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_bookstore_utils_page" model="ir.actions.act_url">
+        <field name="name">Book Web Utilities</field>
+        <field name="url">/bookstore/utils</field>
+        <field name="target">new</field> </record>
+
+    <menuitem
+        id="bookstore_utils_menu"
+        name="Web Utilities"
+        parent="my_bookstore.bookstore_menu_root" action="action_bookstore_utils_page"
+        sequence="98"/>
+</odoo>
